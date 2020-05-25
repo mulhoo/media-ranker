@@ -4,14 +4,14 @@ class Work < ApplicationRecord
   validates :title, presence: true, uniqueness: {scope: :category}
   validates :creator, presence: true
 
-  def self.featured
+  def self.top
     return nil if Vote.count == 0
 
-    featured_work = Work.all.max_by do |work|
+    top_work = Work.all.max_by do |work|
       work.votes.count
     end
 
-    return featured_work
+    return top_work
   end
 
   def self.sort(medium)

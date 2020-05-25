@@ -1,0 +1,50 @@
+<h2>Media Spotlight: 
+<% if @top_work != nil %>
+  <% @top_work %> 
+        <%= link_to @top_work.title, work_path(@top_work.id), class:"link_to" %>
+        by <%= @top_work.creator %>
+</h2>  
+
+<p>
+  <%= Vote.where(work_id:@top_work.id).count =%> votes - <%= @top_work.description %> 
+</p>
+  <% end %>
+
+<h3>Top Albums</h3>
+<ul>
+  <% @sort_albums.each do |album| %> 
+    <ol>
+     Votes: <%= Vote.where(work_id: album.id).count =%>
+      <%= link_to album.title, work_path(album.id), class:"link_to" %>
+       <%= album[:creator] %>
+      <%= album[:category] %>
+      <%= album[:publication_year] %>
+    </ol>
+  <% end %>
+</ul>
+
+<h3>Top Books</h3>
+<ul>
+  <% @sort_books.each do |book| %> 
+    <ol>
+     Votes: <%= Vote.where(work_id: book.id).count =%>
+      <%= link_to book.title, work_path(book.id), class:"link" %>
+      <%= book[:creator] %>
+      <%= book[:category] %>
+      <%= book[:publication_year] %>
+    </ol>
+  <% end %>
+</ul>
+
+<h3>Top Movies</h3>
+<ul>
+  <% @sort_movies.each do |movie| %> 
+    <ol>
+     Votes: <%= Vote.where(work_id: movie.id).count =%>
+      <%= link_to movie.title, work_path(movie.id), class:"link" %>
+      <%= movie[:creator] %>
+      <%= movie[:category] %>
+      <%= movie[:publication_year] %>
+    </ol>
+  <% end %>
+</ul>

@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   before_action :find_work, only:[:show, :edit, :update, :destroy]
+  
   def index
     @works = Work.all 
     @user = User.find(session[:user_id]) rescue nil

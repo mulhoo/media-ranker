@@ -17,8 +17,8 @@ class VotesController < ApplicationController
       flash[:warning] = "Could not upvote"
 
       if @vote.errors.any?
-        @vote.errors.each do |col, mess|
-          flash[col.to_sym] = mess
+        @vote.errors.each do |column, message|
+          flash[column.to_sym] = mess
         end
       end
       

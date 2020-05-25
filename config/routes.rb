@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'featured#index'
+  root 'homepage#index'
   resources :works
   resources :users
   
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get "/users/current", to: "users#current", as: "current_user"
   
   get '/vote/:id', to: 'votes#vote_by_work_id', as: 'vote_by_work_id'
-  get '/featured', to: 'featured#index'
+  get '/homepage', to: 'homepage#index'
 end
