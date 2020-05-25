@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :votes
-  validates :username, presence: true
+  validates :name, presence: true
 
   def works_by_user
     votes = Vote.where(user_id: self.id)

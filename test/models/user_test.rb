@@ -2,7 +2,7 @@ require "test_helper"
 
 describe User do
   let (:new_user) {
-    new_user = User.new(username: "Light Yagami")
+    new_user = User.new(name: "Light Yagami")
   }
 
   it "can be instantiated" do
@@ -12,7 +12,7 @@ describe User do
   it "has required fields" do
     new_user.save
     user = User.first
-    [:username].each do |field|
+    [:name].each do |field|
       expect(user).must_respond_to field
     end
   end
@@ -30,12 +30,12 @@ describe User do
   end
 
   describe "validations" do
-    it "requires a username" do
-      new_user.username = nil
+    it "requires a name" do
+      new_user.name = nil
 
       expect(new_user.valid?).must_equal false
-      expect(new_user.errors.messages).must_include :username
-      expect(new_user.errors.messages[:username]).must_equal ["can't be blank"]
+      expect(new_user.errors.messages).must_include :name
+      expect(new_user.errors.messages[:name]).must_equal ["can't be blank"]
     end
   end
 
@@ -44,8 +44,8 @@ describe User do
       @work_1 = Work.create category: "book", title: "DeathNote", creator: "Tsugumi Ohba", publication_year: 2003, description: "angsty teenage boy plays god"
       @work_2 = Work.create category: "album", title: "Future Nostalgia", creator: "Dua Lipa", publication_year: 2020, description: "Dua Lipa's debut album"
 
-      @user_1 = User.create username: "Light Yagami"
-      @user_2 = User.create username: "L"
+      @user_1 = User.create name: "Light Yagami"
+      @user_2 = User.create name: "L"
       
       @vote_1 = Vote.create user_id: @user_1.id, work_id: @work_1.id
       @vote_2 = Vote.create user_id: @user_2.id, work_id: @work_1.id

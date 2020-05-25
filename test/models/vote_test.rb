@@ -3,7 +3,7 @@ require "test_helper"
 describe Vote do
   let (:new_vote) {
     work_1 = Work.new(category: "album", title: "Future Nostalgia", creator: "Dua Lipa", publication_year: 2020, description: "Dua Lipa debut album")
-    user_1 = User.new(username: "Light Yagami")
+    user_1 = User.new(name: "Light Yagami")
     
     new_vote = Vote.new(user: user_1, work: work_1)
   }
