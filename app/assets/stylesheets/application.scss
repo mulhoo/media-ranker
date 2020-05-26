@@ -78,6 +78,14 @@ body {
   border-color: #26A69A;
 }
 
+.btn-tertiary {
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(116, 119, 119);
+  color: white;
+  border-color: rgb(116, 119, 119)
+}
+
 .app-header__user-nav-container .btn {
   display: inline-block;
   font-weight: 400;
@@ -101,7 +109,13 @@ body {
 
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
   color: #fff;
-  background-color: rgb(151, 238, 229);
+  background-color: rgb(34, 43, 42);
+  border-color: rgb(5, 14, 24);
+}
+
+.btn-tertiary:hover, .btn-tertiary:focus, .btn-tertiary:active {
+  color: #fff;
+  background-color: rgb(34, 43, 42);
   border-color: rgb(5, 14, 24);
 }
 
