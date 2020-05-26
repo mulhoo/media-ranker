@@ -14,8 +14,8 @@ class Work < ApplicationRecord
     return top_work
   end
 
-  def self.sort(medium)
-    sort_work = Work.all.where(medium: medium).limit(10).sort_by do |work|
+  def self.sort(category)
+    sort_work = Work.all.where(category: category).limit(10).sort_by do |work|
       work.votes.count
     end
 

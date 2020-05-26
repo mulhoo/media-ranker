@@ -1,13 +1,14 @@
 class VotesController < ApplicationController
   def upvote
     work = Work.find_by(id: params[:id])
+    user = User.find_by(id: params[:id])
 
     if work.nil?
       head :not_found
       return
     end
 
-    @vote = Vote.new(work_id: work.id, user_id: @user.id)
+    @vote = Vote.new(work_id: work.id, user_id: user.id)
 
     if @vote.save
       flash[:success] = "Upvote Successful"
@@ -15,13 +16,6 @@ class VotesController < ApplicationController
       return
     else
       flash[:warning] = "Could not upvote"
-
-      if @vote.errors.any?
-        @vote.errors.each do |column, message|
-          flash[column.to_sym] = mess
-        end
-      end
-      
       redirect_back(fallback_location: root_path)
       return
     end
