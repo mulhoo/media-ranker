@@ -3,10 +3,6 @@ section {
   padding-left: 100px;
 }
 
-h2 {
-  padding-left: 50px;
-}
-
 .users__table thead th {
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
@@ -17,5 +13,40 @@ h2 {
   vertical-align: middle;
   padding: 0.75rem;
   border-top: 1px solid;
+}
+
+section {
+  display: block;
+}
+
+h2 {
+  color: #26A69A;
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-left: 6rem;
+  font-size: 25px;
+}
+
+a {
+  color: #26A69A
+}
+
+.works-votes__container {
+  margin-top: 2rem;
 }
 

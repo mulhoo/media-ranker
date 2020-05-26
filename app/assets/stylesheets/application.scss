@@ -73,6 +73,10 @@ body {
 }
 
 .btn-primary {
+  margin-left: 50px;
+  margin-right: 40px;
+  position: relative;
+  left: 80%;
   background-color: #26A69A;
   color: white;
   border-color: #26A69A;
@@ -84,6 +88,15 @@ body {
   background-color: rgb(116, 119, 119);
   color: white;
   border-color: rgb(116, 119, 119)
+}
+
+.btn-quaternary {
+  position: relative;
+  top: 50px;
+  left: 200px;
+  background-color: #26A69A;
+  color: white;
+  border-color: #26A69A
 }
 
 .app-header__user-nav-container .btn {
