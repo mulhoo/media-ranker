@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
   def index
     @users = User.all
     @user = User.find(session[:user_id]) rescue nil
@@ -75,5 +76,12 @@ class UsersController < ApplicationController
 
   def user_params
     return params.require(:user).permit(:name, :date_joined)
+  end
+
+  def require_login
+    if current_user.nil?
+      flash[:warning] = "You must log in to view this page"
+      redirect_back(fallback_location: root_path)
+    end
   end
 end
