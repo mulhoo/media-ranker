@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user[:date_joined] = Date.today
+      @user[:name] = @user.name.downcase
+      @user[:date_joined] = Date.now.strftime("%d %b %y")
       redirect_to user_path(@user.id)
       return
     else
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Logged in as #{name}"
     else
-      user = User.create(name: name)
+      user = User.create(name: name.downcase, date_joined: Date.today)
       session[:user_id] = user.id
       flash[:success] = "Logged in as new user #{name}"
     end
@@ -65,10 +66,11 @@ class UsersController < ApplicationController
     redirect_to root_path
     return
   end
+  
 
   private
 
-  def work_params
-    return params.require(:user).permit(:name)
+  def user_params
+    return params.require(:user).permit(:name, :date_joined)
   end
 end

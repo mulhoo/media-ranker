@@ -1,0 +1,67 @@
+<h2>Medias:</h2>
+
+<h3>Albums</h3>
+<ul>
+  <% @works.where(category: 'album' ).limit(10).sort.each do |album|  %>
+    <ol>
+     Votes: <%= Vote.where(work_id: album.id).count =%>
+      <%= link_to album.title, work_path(album.id), class:"olnk" %>, 
+      <%= album[:creator] %>
+      (<%= album[:publication_year] %>)
+
+      <%= link_to "<button>Edit</button>".html_safe, edit_work_path(album) %>
+      <%= link_to "<button>Delete</button>".html_safe, work_path(album), method: :delete, data: {confirm: "Are you sure you want to delete '#{album.title}'?"}%>
+      
+      <% if @user && Vote.exists?(work_id: album.id, user_id: @user.id) %>
+        Voted
+      <% else  %>
+        <%= link_to "<button>Upvote</button>".html_safe, upvote_path(album) %>
+      <% end %>
+
+    </ol>
+  <% end %>
+</ul>
+
+<h3>Books</h3>
+<ul>
+  <% @works.where(category: 'book' ).limit(10).sort.each do |book|  %>
+    <ol>
+     Votes: <%= Vote.where(work_id: book.id).count =%>
+      <%= link_to book.title, work_path(book.id), class:"olnk" %>, 
+      <%= book[:creator] %>
+      (<%= book[:publication_year] %>)
+
+      <%= link_to "<button>Edit</button>".html_safe, edit_work_path(book) %>
+      <%= link_to "<button>Delete</button>".html_safe, work_path(book), method: :delete, data: {confirm: "Are you sure you want to delete '#{book.title}'?"}%>
+      
+      <% if @user && Vote.exists?(work_id: book.id, user_id: @user.id) %>
+        Voted
+      <% else  %>
+        <%= link_to "<button>Upvote</button>".html_safe, upvote_path(book) %>
+      <% end %>
+
+    </ol>
+  <% end %>
+</ul>
+
+<h3>Movies</h3>
+<ul>
+  <% @works.where(category: 'movie' ).limit(10).sort.each do |movie|  %>
+    <ol>
+     Votes: <%= Vote.where(work_id: movie.id).count =%>
+      <%= link_to movie.title, work_path(movie.id), class:"olnk" %>, 
+      <%= movie[:creator] %>
+      (<%= movie[:publication_year] %>)
+
+      <%= link_to "<button>Edit</button>".html_safe, edit_work_path(movie) %>
+      <%= link_to "<button>Delete</button>".html_safe, work_path(movie), method: :delete, data: {confirm: "Are you sure you want to delete '#{movie.title}'?"}%>
+      
+      <% if @user && Vote.exists?(work_id: movie.id, user_id: @user.id) %>
+        Voted
+      <% else  %>
+        <%= link_to "<button>Upvote</button>".html_safe, upvote_path(movie) %>
+      <% end %>
+
+    </ol>
+  <% end %>
+</ul>

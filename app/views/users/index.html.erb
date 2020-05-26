@@ -1,0 +1,13 @@
+<h2>Users:</h2>
+
+<ul>
+  <% @users.sort.each do |user|  %>
+    <h6>Username: <%= link_to user.name, user_path(user), class:"link" %></h6>
+    <ul> 
+      Votes: <%= Vote.where(user_id: user.id).count =%>
+      <br>
+      Joined: <%= user.date_joined %> 
+    </ul>
+    <br><br>
+  <% end %>
+</ul>

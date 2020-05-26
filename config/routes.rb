@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   post "/logout", to: "users#logout", as: "logout"
   get "/users/current", to: "users#current", as: "current_user"
   
-  get '/vote/:id', to: 'votes#vote_by_work_id', as: 'vote_by_work_id'
+  get '/vote/:id', to: 'votes#upvote', as: 'upvote'
   get '/homepage', to: 'homepage#index'
 end

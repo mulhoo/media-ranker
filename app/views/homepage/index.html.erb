@@ -1,14 +1,16 @@
 <h2>Media Spotlight: 
-<% if @top_work != nil %>
-  <% @top_work %> 
-        <%= link_to @top_work.title, work_path(@top_work.id), class:"link_to" %>
-        by <%= @top_work.creator %>
-</h2>  
+  <% if @top_work != nil %>
+    <% @top_work %> 
+          <%= link_to @top_work.title, work_path(@top_work.id), class:"link_to" %>
+          by <%= @top_work.creator %>
 
-<p>
-  <%= Vote.where(work_id:@top_work.id).count =%> votes - <%= @top_work.description %> 
-</p>
+      <p>
+        <%= Vote.where(work_id:@top_work.id).count =%> votes - <%= @top_work.description %> 
+      </p>
   <% end %>
+</h2>
+
+
 
 <h3>Top Albums</h3>
 <ul>
