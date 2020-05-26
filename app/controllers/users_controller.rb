@@ -33,13 +33,8 @@ class UsersController < ApplicationController
 
   def current_user
     @current_user = User.find_by(id: session[:user_id])
-
-    unless @current_user
-      flash[:warning] = "Please log in to see this page."
-      redirect_to root_path
-      return
-    end
   end
+
 
   def login_form
     @user = User.new
@@ -65,6 +60,14 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
     return
+  end
+
+  def require_login
+    if current_user.nil?
+      flash[:warning] = "You must be logged in to see this page."
+      redirect_to root_path
+      return
+    end
   end
   
 
