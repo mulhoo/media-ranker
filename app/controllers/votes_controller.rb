@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def upvote
     work = Work.find_by(id: params[:id])
-    user = User.find_by(id: session[:user_id])
+    user = User.find_by(id: params[:id])
 
     if work.nil?
       head :not_found
@@ -12,11 +12,11 @@ class VotesController < ApplicationController
 
     if @vote.save
       flash[:success] = "Upvote Successful"
-      redirect_to work_path
+      redirect_back(fallback_location: root_path)
       return
     else
       flash[:warning] = "Could not upvote"
-      redirect_to work_path
+      redirect_back(fallback_location: root_path)
       return
     end
   end
