@@ -4,7 +4,7 @@
 body {
   font-family: "Gudea", sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 400px;
   line-height: 1.5;
   color: #212529;
   text-align: left;
@@ -16,13 +16,13 @@ body {
   margin-bottom: 0.5rem;
   padding-top: 50px;
   padding-bottom: 10px;
-  padding-left: 40px;
+  text-align: center;
   display: block;
 }
 
 .app-header__header h1 a {
   color: #FF5722;
-  padding-left: 300px;
+
   padding-right: 10px;
   margin-right: 10px;
   border-right: white 2px solid;
@@ -101,7 +101,7 @@ body {
 
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
   color: #fff;
-  background-color:  rgb(27, 110, 102);
+  background-color: rgb(151, 238, 229);
   border-color: rgb(5, 14, 24);
 }
 

@@ -44,9 +44,11 @@ class WorksController < ApplicationController
     end
 
     if @work.update(work_params)
+      flash[:success] = "Work successfully updated."
       redirect_to work_path(@work.id)
       return
     else
+      flash[:warning] = "Work failed to update."
       render :edit
       return
     end
@@ -59,6 +61,7 @@ class WorksController < ApplicationController
     end
     
     @work.destroy
+    flash[:success] = "#{@work.title} has been deleted."
     redirect_to works_path
     return
   end

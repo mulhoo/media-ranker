@@ -7,7 +7,7 @@ class User < ApplicationRecord
     votes = Vote.where(user_id: self.id)
     works_list = []
     votes.each do |vote|
-      works_list  << Work.find_by(id: vote.work_id)
+      works_list << Work.find_by(id: vote.work_id)
     end
 
     return works_list

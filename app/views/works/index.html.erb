@@ -12,7 +12,7 @@
         <% if @user && Vote.exists?(work_id: album.id, user_id: @user.id) %>
           Voted
         <% else  %>
-          <%= link_to "<button>Upvote</button>".html_safe, upvote_path(album) %>
+          <%= link_to "<button>Upvote</button>".html_safe, create_path(album) %>
         <% end %>
 
       </ol>
@@ -30,7 +30,7 @@
         <% if @user && Vote.exists?(work_id: book.id, user_id: @user.id) %>
           Voted
         <% else  %>
-          <%= link_to "<button>Upvote</button>".html_safe, upvote_path(book) %>
+          <%= link_to "<button>Upvote</button>".html_safe, create_path(book) %>
         <% end %>
 
       </ol>
@@ -48,7 +48,7 @@
         <% if @user && Vote.exists?(work_id: movie.id, user_id: @user.id) %>
           Voted
         <% else  %>
-          <%= link_to "<button>Upvote</button>".html_safe, upvote_path(movie) %>
+          <%= link_to "<button>Upvote</button>".html_safe, create_path(movie) %>
         <% end %>
 
       </ol>
@@ -57,4 +57,5 @@
 </section>
 
 <%= link_to "View Top Media", root_path, class:'btn btn-secondary' %>
+<%= link_to "View All Users", users_path, class:'btn btn-secondary' %>
 <%= link_to "Add a New Work", new_work_path, class:'btn btn-secondary' %>

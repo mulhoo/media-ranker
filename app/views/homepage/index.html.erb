@@ -18,15 +18,15 @@
 
 <section class="top-ten__container">
   <section class="top-ten_list-container">
-    <h3 class="top-ten__header">Top Albums</h3>
+    <h3 class="top-ten__header">Top Movies</h3>
     <ul class='list-group top-ten__list'>
-      <% @sort_albums.each do |album| %> 
+      <% @sort_movies.each do |movie| %> 
         <ol class='list-group-item'>
-          <%= link_to album.title, work_path(album.id), class:"link_to" %>, 
-          <%= album[:creator] %>
-          (<%= album[:publication_year] %>)
+          <%= link_to movie.title, work_path(movie.id), class:"link_to" %>, 
+          <%= movie[:creator] %>
+          (<%= movie[:publication_year] %>)
           <div class = "votes">
-            <%= Vote.where(work_id: album.id).count =%> votes
+            <%= Vote.where(work_id: movie.id).count =%> votes
           </div>
         </ol>
       <% end %>
@@ -49,19 +49,20 @@
     </ul>
   </section>
 
-  <section class="top-ten_list-container">
-    <h3 class="top-ten__header">Top Movies</h3>
+   <section class="top-ten_list-container">
+    <h3 class="top-ten__header">Top Albums</h3>
     <ul class='list-group top-ten__list'>
-      <% @sort_movies.each do |movie| %> 
+      <% @sort_albums.each do |album| %> 
         <ol class='list-group-item'>
-          <%= link_to movie.title, work_path(movie.id), class:"link_to" %>, 
-          <%= movie[:creator] %>
-          (<%= movie[:publication_year] %>)
+          <%= link_to album.title, work_path(album.id), class:"link_to" %>, 
+          <%= album[:creator] %>
+          (<%= album[:publication_year] %>)
           <div class = "votes">
-            <%= Vote.where(work_id: movie.id).count =%> votes
+            <%= Vote.where(work_id: album.id).count =%> votes
           </div>
         </ol>
       <% end %>
     </ul>
   </section>
+
 </section>
