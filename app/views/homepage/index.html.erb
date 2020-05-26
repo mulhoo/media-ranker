@@ -1,49 +1,67 @@
-<h2>Media Spotlight: 
-  <% if @top_work != nil %>
-    <% @top_work %> 
-          <%= link_to @top_work.title, work_path(@top_work.id), class:"link_to" %>
-          by <%= @top_work.creator %>
+<section class='spotlight'>
+  <h2 class = "spotlight__header">
+    <span class='spotlight__header--prefix'>Media Spotlight: 
+      <% if @top_work != nil %>
+        <% @top_work %> 
+              <%= link_to @top_work.title, work_path(@top_work.id), class: 'spotlight__link-to' %>
+              by <%= @top_work.creator %>
 
-      <p>
-        <%= Vote.where(work_id:@top_work.id).count =%> votes - <%= @top_work.description %> 
-      </p>
-  <% end %>
-</h2>
+          <p class='spotlight__description'>
+            <%= Vote.where(work_id:@top_work.id).count =%> votes - <%= @top_work.description %> 
+          </p>
+      <% end %>
+    </span>
+  </h2>
+</section>
 
+<hr class="root_hr">
 
+<section class="top-ten__container">
+  <section class="top-ten_list-container">
+    <h3 class="top-ten__header">Top Albums</h3>
+    <ul class='list-group top-ten__list'>
+      <% @sort_albums.each do |album| %> 
+        <ol class='list-group-item'>
+          <%= link_to album.title, work_path(album.id), class:"link_to" %>, 
+          <%= album[:creator] %>
+          (<%= album[:publication_year] %>)
+          <div class = "votes">
+            <%= Vote.where(work_id: album.id).count =%> votes
+          </div>
+        </ol>
+      <% end %>
+    </ul>
+  </section>
 
-<h3>Top Albums</h3>
-<ul>
-  <% @sort_albums.each do |album| %> 
-    <ol>
-     Votes: <%= Vote.where(work_id: album.id).count =%>
-      <%= link_to album.title, work_path(album.id), class:"link_to" %>, 
-      <%= album[:creator] %>
-      (<%= album[:publication_year] %>)
-    </ol>
-  <% end %>
-</ul>
+  <section class="top-ten_list-container">
+    <h3 class="top-ten__header">Top Books</h3>
+    <ul class='list-group top-ten__list'>
+      <% @sort_books.each do |book| %> 
+        <ol class='list-group-item'>
+          <%= link_to book.title, work_path(book.id), class:"link_to" %>, 
+          <%= book[:creator] %>
+          (<%= book[:publication_year] %>)
+          <div class = "votes">
+            <%= Vote.where(work_id: book.id).count =%> votes
+          </div>
+        </ol>
+      <% end %>
+    </ul>
+  </section>
 
-<h3>Top Books</h3>
-<ul>
-  <% @sort_books.each do |book| %> 
-    <ol>
-     Votes: <%= Vote.where(work_id: book.id).count =%>
-      <%= link_to book.title, work_path(book.id), class:"link" %>, 
-      <%= book[:creator] %>
-      (<%= book[:publication_year] %>)
-    </ol>
-  <% end %>
-</ul>
-
-<h3>Top Movies</h3>
-<ul>
-  <% @sort_movies.each do |movie| %> 
-    <ol>
-     Votes: <%= Vote.where(work_id: movie.id).count =%>
-      <%= link_to movie.title, work_path(movie.id), class:"link" %>, 
-      <%= movie[:creator] %>
-      (<%= movie[:publication_year] %>)
-    </ol>
-  <% end %>
-</ul>
+  <section class="top-ten_list-container">
+    <h3 class="top-ten__header">Top Movies</h3>
+    <ul class='list-group top-ten__list'>
+      <% @sort_movies.each do |movie| %> 
+        <ol class='list-group-item'>
+          <%= link_to movie.title, work_path(movie.id), class:"link_to" %>, 
+          <%= movie[:creator] %>
+          (<%= movie[:publication_year] %>)
+          <div class = "votes">
+            <%= Vote.where(work_id: movie.id).count =%> votes
+          </div>
+        </ol>
+      <% end %>
+    </ul>
+  </section>
+</section>

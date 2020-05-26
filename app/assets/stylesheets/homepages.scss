@@ -1,56 +1,111 @@
+.spotlight {
+  padding-top: 30px;
+  padding-left: 85px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+}
+
+.spotlight__header--prefix {
+  color: #424242;
+}
+
 .spotlight__header {
   color: #26A69A;
-  
+}
+
+.spotlight__description {
+  color: #424242;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.link-to:hover, .link-to:focus, .link-to:active, .link-to.active, .open>.dropdown-toggle.link-to {
+  color: #fff;
+  background-color:  rgb(17, 233, 211);
+  text-decoration: none;
+}
+
+.spotlight__link-to {
+  border-bottom: 2px solid;
+  color: #26A69A;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .spotlight__header a:hover {
-  color:  rgb(25, 112, 103);
+  text-decoration: none;
+  color: rgb(27, 110, 102);
 }
-​
-.spotlight {
-  padding: 0 2rem 2rem 2rem;
-}
-​
-.spotlight__header--prefix::after {
-  content: ":";
-}
-​
+
 .root__hr {
-  margin: 0px auto 3rem auto;
-  color: #EEEEEE;
+  margin: 15px auto 3rem auto;
 }
-​
+
 .top-ten__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2em;
+  grid-column-gap: 2em; 
+  column-gap: 2em;
+  padding: 40px;
 }
 
-​
-.top-ten__list {
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
+.top-ten__header {
+  color: #26A69A;
+  border-bottom: 2px solid;
+  border-bottom-color: #B2DFDB;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
 }
-​
+
 .list-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
 }
-​
-.list-group-item {
-  position: relative;
-  display: block;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: -1px;
-  background-color: #fff;
-}
-​
-.top-ten__creator {
-  color: slategrey;
+
+.top-ten__list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
-.top-ten__container{
-  display: flex;
+.list-group-item {
+  border: none;
+}
+
+.list-group-item h4 a {
+  color: #26A69A;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.top-ten__creator {
+  color: slategrey;
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.votes {
+  font-size: 15px;
+  font-family: papyrus;
+}
+
+.creator {
+  color: 424242;
+}
+
+.link_to {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
