@@ -15,10 +15,9 @@
   <% @sort_albums.each do |album| %> 
     <ol>
      Votes: <%= Vote.where(work_id: album.id).count =%>
-      <%= link_to album.title, work_path(album.id), class:"link_to" %>
-       <%= album[:creator] %>
-      <%= album[:category] %>
-      <%= album[:publication_year] %>
+      <%= link_to album.title, work_path(album.id), class:"link_to" %>, 
+      <%= album[:creator] %>
+      (<%= album[:publication_year] %>)
     </ol>
   <% end %>
 </ul>
@@ -28,10 +27,9 @@
   <% @sort_books.each do |book| %> 
     <ol>
      Votes: <%= Vote.where(work_id: book.id).count =%>
-      <%= link_to book.title, work_path(book.id), class:"link" %>
+      <%= link_to book.title, work_path(book.id), class:"link" %>, 
       <%= book[:creator] %>
-      <%= book[:category] %>
-      <%= book[:publication_year] %>
+      (<%= book[:publication_year] %>)
     </ol>
   <% end %>
 </ul>
@@ -41,10 +39,9 @@
   <% @sort_movies.each do |movie| %> 
     <ol>
      Votes: <%= Vote.where(work_id: movie.id).count =%>
-      <%= link_to movie.title, work_path(movie.id), class:"link" %>
+      <%= link_to movie.title, work_path(movie.id), class:"link" %>, 
       <%= movie[:creator] %>
-      <%= movie[:category] %>
-      <%= movie[:publication_year] %>
+      (<%= movie[:publication_year] %>)
     </ol>
   <% end %>
 </ul>
