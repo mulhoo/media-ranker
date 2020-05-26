@@ -20,7 +20,7 @@
   <section class="top-ten_list-container">
     <h3 class="top-ten__header">Top Movies</h3>
     <ul class='list-group top-ten__list'>
-      <% @sort_movies.each do |movie| %> 
+      <% @sort_movies[0..9].each do |movie| %> 
         <ol class='list-group-item'>
           <%= link_to movie.title, work_path(movie.id), class:"link_to" %>, 
           <%= movie[:creator] %>
@@ -36,7 +36,7 @@
   <section class="top-ten_list-container">
     <h3 class="top-ten__header">Top Books</h3>
     <ul class='list-group top-ten__list'>
-      <% @sort_books.each do |book| %> 
+      <% @sort_books[0..9].each do |book| %> 
         <ol class='list-group-item'>
           <%= link_to book.title, work_path(book.id), class:"link_to" %>, 
           <%= book[:creator] %>
@@ -52,7 +52,7 @@
    <section class="top-ten_list-container">
     <h3 class="top-ten__header">Top Albums</h3>
     <ul class='list-group top-ten__list'>
-      <% @sort_albums.each do |album| %> 
+      <% @sort_albums[0..9].each do |album| %> 
         <ol class='list-group-item'>
           <%= link_to album.title, work_path(album.id), class:"link_to" %>, 
           <%= album[:creator] %>

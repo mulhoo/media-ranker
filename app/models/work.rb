@@ -15,10 +15,10 @@ class Work < ApplicationRecord
   end
 
   def self.sort(category)
-    sort_work = Work.all.where(category: category).limit(10).sort_by do |work|
+    sort_work = Work.all.where(category: category).sort_by do |work|
       work.votes.count
     end
 
-    return sort_work
+    return sort_work.reverse
   end
 end

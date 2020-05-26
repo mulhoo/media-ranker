@@ -41,15 +41,15 @@ describe User do
 
   describe "custom method - works_by_user" do
     before do
-      @work_1 = Work.create category: "book", title: "DeathNote", creator: "Tsugumi Ohba", publication_year: 2003, description: "angsty teenage boy plays god"
-      @work_2 = Work.create category: "album", title: "Future Nostalgia", creator: "Dua Lipa", publication_year: 2020, description: "Dua Lipa's debut album"
+      @work_1 = Work.create(category: "book", title: "DeathNote", creator: "Tsugumi Ohba", publication_year: 2003, description: "angsty teenage boy plays god")
+      @work_2 = Work.create(category: "album", title: "Future Nostalgia", creator: "Dua Lipa", publication_year: 2020, description: "Dua Lipa's debut album")
 
-      @user_1 = User.create name: "Light Yagami"
-      @user_2 = User.create name: "L"
+      @user_1 = User.create(name: "Light Yagami")
+      @user_2 = User.create(name: "L")
       
-      @vote_1 = Vote.create user_id: @user_1.id, work_id: @work_1.id
-      @vote_2 = Vote.create user_id: @user_2.id, work_id: @work_1.id
-      @vote_3 = Vote.create user_id: @user_1.id, work_id: @work_2.id
+      @vote_1 = Vote.create(user_id: @user_1.id, work_id: @work_1.id)
+      @vote_2 = Vote.create(user_id: @user_2.id, work_id: @work_1.id)
+      @vote_3 = Vote.create(user_id: @user_1.id, work_id: @work_2.id)
     end
 
     it "shows work by user" do

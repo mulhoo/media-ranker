@@ -3,7 +3,7 @@
 <section class="media-table">
   <h3>Albums</h3>
   <ul>
-    <% @works.where(category: 'album' ).limit(10).sort.each do |album|  %>
+    <% @works.where(category: "album" ).sort.each do |album|  %>
       <ol>
         <%= link_to album.title, work_path(album.id), class:"olnk" %>, 
         <%= album[:creator] %>
@@ -21,7 +21,7 @@
 
   <h3>Books</h3>
   <ul>
-    <% @works.where(category: 'book' ).limit(10).sort.each do |book|  %>
+    <% @works.where(category: "book" ).sort.each do |book|  %>
       <ol>
         <%= link_to book.title, work_path(book.id), class:"olnk" %>, 
         <%= book[:creator] %>
@@ -39,7 +39,7 @@
 
   <h3>Movies</h3>
   <ul>
-    <% @works.where(category: 'movie' ).limit(10).sort.each do |movie|  %>
+    <% @works.where(category: "movie" ).sort.each do |movie|  %>
       <ol>
         <%= link_to movie.title, work_path(movie.id), class:"olnk" %>, 
         <%= movie[:creator] %>
