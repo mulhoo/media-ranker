@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :find_work, only:[:show, :edit, :update, :destroy]
+  before_action :find_work, only:[:show]
   
   def index
     @works = Work.all 
@@ -29,40 +29,6 @@ class WorksController < ApplicationController
       return
     end
   end
-
-  def edit  
-    if @work.nil?
-      head :not_found
-      return
-    end
-  end
-
-  def update
-    if @work.nil?
-      head :not_found
-      return
-    end
-
-    if @work.update(work_params)
-      redirect_to work_path(@work.id)
-      return
-    else
-      render :edit
-      return
-    end
-  end
-
-  def destroy
-    if @work.nil?
-      head :not_found
-      return
-    end
-    
-    @work.destroy
-    redirect_to works_path
-    return
-  end
-
 
 
   private
