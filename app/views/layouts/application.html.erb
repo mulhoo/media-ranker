@@ -40,7 +40,7 @@
               </li>
             <%else%>
               <li class="nav-item app-header__nav_item">
-                <div class= "btn btn-primary">
+                <div class= "btn logged-in">
                   Logged in as <%= User.find_by(id: session[:user_id]).name %>
                 </div>
               </li>

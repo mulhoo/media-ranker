@@ -1,14 +1,11 @@
-<h1><%= @user[:name] %></h1>
+<h1><b>User: </b><%= @user[:name] %></h1>
 
 <% @user.works_by_user.each do |work| %>
-  <p>Title: <%= work[:title] %></p>
-  <p>Created by: <%= work[:creator] %></p>
-  <p>Published: <%= work[:publication_year] %></p>
-  <p>Category: <%= work[:category] %></p>
-  <p>Voted On: <%= work[:category] %></p>
+  <p><b>Title: </b><%= work[:title] %></p>
+  <p><b>Creator: </b><%= work[:creator] %></p>
+  <p><b>Published: </b><%= work[:publication_year] %></p>
+  <p><b>Category: </b><%= work[:category] %></p>
+  <br>
 <% end %>
 
-<%= link_to "Edit", edit_work_path(@work), class:"btn btn-quaternary" %>
-<%= link_to "Delete", work_path(@work), class:"btn btn-quaternary", method: :delete, data: {confirm: "Are you sure you want to delete this work?"} %>
-<%= link_to "Upvote", create_path, class:"btn btn-quaternary" %>
-<div><%= link_to "Return to All Media", works_path, class:"btn btn-tertiary" %></div>
+<div><%= link_to "Return to All Media", works_path, class:"btn btn-secondary" %></div>
